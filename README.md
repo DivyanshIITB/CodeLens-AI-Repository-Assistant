@@ -10,7 +10,8 @@ CodeLens AI is a local, privacy-first developer assistant designed to help softw
 * **Grounded RAG AI Chat**: Answers codebase architecture and implementation questions with line-level source citations (`file_path:start_line-end_line`) that open directly in a built-in syntax-highlighted inspector.
 * **Syntax-Aware AST Code Chunking**: Uses **Tree-sitter** to chunk code along language AST boundaries (Classes, Functions, Methods, Scopes) instead of naive character/line splitting.
 * **Hybrid Retrieval (FAISS + BM25 + RRF)**: Combines dense vector search (FAISS IndexFlatIP) with sparse keyword search (BM25Okapi) via **Reciprocal Rank Fusion (RRF)** for maximum retrieval recall.
-* **Dynamic Grounding Confidence Metric**: Calculates a real-time **0–100% Grounding Confidence Score** ($S = 0.6 \cdot S_{\text{rrf\_norm}} + 0.4 \cdot S_{\text{density}}$) to surface low-confidence retrievals (<60%) and prevent reliance on unsupported outputs.
+* **Dynamic Grounding Confidence Metric**: Calculates a real-time **0–100% Grounding Confidence Score** (`0.6 × S_rrf + 0.4 × S_density`) to surface low-confidence retrievals (<60%) and prevent reliance on unsupported outputs.
+
 * **Automated REST API Documentation**: Discovers HTTP route handlers (`@app.get`, `@router.post`, `express.get`) and parameters across source files.
 * **Developer Onboarding Roadmaps**: Generates ordered reading lists and 5-step learning roadmaps for new repository contributors.
 * **Module Dependency Networks**: Visualizes cross-file `import` / `require` dependency edges.
